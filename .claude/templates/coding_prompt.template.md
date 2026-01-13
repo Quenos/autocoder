@@ -90,7 +90,14 @@ For example, if this were a chat app, you should perform a test that logs into t
 
 **You MUST implement ALL features, regardless of category.** A refactoring feature is just as mandatory as a functional feature. Do not skip, deprioritize, or dismiss any feature because of its category.
 
-The `feature_get_next` tool returns the highest-priority pending feature. **Whatever it returns, you implement it.** No exceptions.
+The `feature_get_next` tool returns the highest-priority pending feature. **Whatever it returns, you implement it.**
+
+**Legitimate blockers only:** If you encounter a genuine external blocker (missing API credentials, unavailable external service, hardware limitation), use `feature_skip` to flag it and move on. See "When to Skip a Feature" below for valid skip reasons. Internal issues like "code doesn't exist yet" or "this is a big change" are NOT valid blockers.
+
+**Handling edge cases:**
+- **Conflicting features:** If two features contradict each other (e.g., "migrate to TypeScript" vs "keep JavaScript"), implement the higher-priority one first, then reassess.
+- **Ambiguous requirements:** Interpret the intent as best you can. If truly unclear, implement your best interpretation and document your assumptions.
+- **Circular dependencies:** Break the cycle by implementing the foundational piece first.
 
 #### TEST-DRIVEN DEVELOPMENT MINDSET (CRITICAL)
 
